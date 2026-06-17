@@ -1,23 +1,9 @@
 {
   "$schema": "https://railway.app/railway.schema.json",
   "build": {
-    "builder": "nixpacks"
+    "builder": "nixpacks",
+    "buildCommand": "cd server && npm install && cd ../client && npm install && npm run build"
   },
-  "services": {
-    "server": {
-      "build": {
-        "buildCommand": "cd server && npm install",
-        "startCommand": "cd server && npm run dev"
-      },
-      "port": 3001,
-      "healthcheckPath": "/health"
-    },
-    "client": {
-      "build": {
-        "buildCommand": "cd client && npm install && npm run build",
-        "startCommand": "cd client && npx serve -s dist -l 5173"
-      },
-      "port": 5173
-    }
-  }
+  "startCommand": "cd server && npm run dev",
+  "watchPatterns": ["server/**", "client/**"]
 }
