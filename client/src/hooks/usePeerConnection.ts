@@ -3,7 +3,6 @@ import Peer from 'peerjs';
 import { io, Socket } from 'socket.io-client';
 import { config } from '../config';
 
-
 interface UsePeerConnectionOptions {
   onConnected?: () => void;
   onDisconnected?: () => void;
@@ -103,7 +102,6 @@ export function usePeerConnection(options: UsePeerConnectionOptions = {}) {
       console.log('Connecting to signaling server:', signalingUrl);
       
       const socket = io(config.signalingUrl);  
-
       socketRef.current = socket;
       
       socket.on('connect', () => {
@@ -115,7 +113,7 @@ export function usePeerConnection(options: UsePeerConnectionOptions = {}) {
         console.log('Peer joined event:', { senderId, receiverId });
       });
       
-      socket.on('offer', async ({ from, offer }) => {
+      socket.on('offer', async ({ from }) => {
         console.log('Received offer from:', from);
         setConnectionStatus('connecting');
         
