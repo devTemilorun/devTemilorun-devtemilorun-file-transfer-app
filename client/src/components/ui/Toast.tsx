@@ -50,7 +50,7 @@ export function ToastProvider({ children }: { children: React.ReactNode }) {
               initial={{ opacity: 0, x: 50 }}
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: 50 }}
-              className="bg-gray-900 border border-gray-700 rounded-lg shadow-lg p-3 min-w-[240px] flex items-center gap-3"
+              className="bg-gray-900 border border-gray-700 rounded-lg shadow-lg p-3 min-w-60 flex items-center gap-3"
             >
               {icons[toast.type]}
               <span className="flex-1 text-sm text-gray-200">{toast.message}</span>

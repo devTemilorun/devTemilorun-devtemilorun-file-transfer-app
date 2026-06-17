@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react';
+import  { useState, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDropzone } from 'react-dropzone';
 import { motion } from 'framer-motion';
@@ -26,7 +26,7 @@ export function SendPage() {
   const [sessionId, setSessionId] = useState<string | null>(null);
   const [localConnectionStatus, setLocalConnectionStatus] = useState<'waiting' | 'connected' | 'failed'>('waiting');
 
-  const { peerId, connectionStatus, connectToPeer } = usePeerConnection({
+  const { peerId, connectionStatus } = usePeerConnection({
     onConnected: () => {
       console.log('Peer connection established!');
       setLocalConnectionStatus('connected');
@@ -160,7 +160,7 @@ export function SendPage() {
               {selectedFiles.map((fileItem) => (
                 <div key={fileItem.id} className="flex items-center justify-between p-3 hover:bg-gray-700/50 transition-colors">
                   <div className="flex items-center gap-3 flex-1 min-w-0">
-                    <File className="w-5 h-5 text-blue-500 flex-shrink-0" />
+                    <File className="w-5 h-5 text-blue-500 shrink-0" />
                     <div className="flex-1 min-w-0">
                       <p className="text-white text-sm truncate">{fileItem.file.name}</p>
                       <p className="text-gray-500 text-xs">{formatBytes(fileItem.file.size)}</p>

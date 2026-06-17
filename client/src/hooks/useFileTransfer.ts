@@ -1,4 +1,4 @@
-import { useState, useCallback, useRef, useEffect } from 'react';
+import { useState, useCallback, useRef } from 'react';
 import { chunkFile, FileAssembler, calculateSpeed, formatBytes } from '../lib/chunking';
 import type { FileMetadata, PeerMessage } from '../../../shared/types';
 
@@ -14,7 +14,6 @@ export function useFileTransfer(options: UseFileTransferOptions = {}) {
   const [progressMap, setProgressMap] = useState<Map<string, number>>(new Map());
   const [speed, setSpeed] = useState(0);
   const assemblerRef = useRef(new FileAssembler());
-  const receivedFilesRef = useRef<Map<string, File>>(new Map());
   const startTimeRef = useRef<number>(0);
   const bytesTransferredRef = useRef<number>(0);
   

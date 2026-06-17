@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import  { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Button } from '../../components/ui/Button';
@@ -6,7 +6,6 @@ import { QRScanner } from '../../components/ui/QRScanner';
 import { useToast } from '../../components/ui/Toast';
 import { usePeerConnection } from '../../hooks/usePeerConnection';
 import { Camera, Link2 } from 'lucide-react';
-import { config } from '../../config';
 
 export function ReceivePage() {
   const { sessionId: paramSessionId } = useParams();
@@ -21,10 +20,6 @@ export function ReceivePage() {
       showToast('Connected to sender!', 'success');
       navigate(`/transfer/${sessionId}`, { state: { isSender: false } });
     },
-    onError: (error) => {
-      showToast('Failed to connect. Check the link and try again.', 'error');
-      setIsJoining(false);
-    }
   });
 
   const handleJoin = async () => {
