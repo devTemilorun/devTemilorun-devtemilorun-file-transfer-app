@@ -1,6 +1,6 @@
 import { useState, useCallback, useRef, useEffect } from 'react';
 import { chunkFile, FileAssembler, calculateSpeed, formatBytes } from '../lib/chunking';
-import type { FileMetadata, PeerMessage } from '../../shared/types';
+import type { FileMetadata, PeerMessage } from '../../../shared/types';
 
 interface UseFileTransferOptions {
   onProgress?: (fileId: string, progress: number) => void;
